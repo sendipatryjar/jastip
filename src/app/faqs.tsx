@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Typography, Card } from "@material-tailwind/react";
+import { Typography, Card, TypographyProps } from "@material-tailwind/react";
 
 const FAQS = [
   {
@@ -35,7 +35,7 @@ export function Faqs() {
     <section className="px-8 py-20">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center">
-          <Typography variant="h1" color="blue-gray" className="mb-4">
+          <Typography variant="h1" color="blue-gray" className="mb-4" >
             Frequently asked questions
           </Typography>
           <Typography
