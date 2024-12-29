@@ -30,7 +30,7 @@ const FAQS = [
   },
 ];
 
-export function Faq() {
+export default function FAQPage() {
   return (
     <section className="px-8 py-20">
       <div className="container max-w-6xl mx-auto">
@@ -65,4 +65,4 @@ export function Faq() {
   );
 }
 
-export default Faq;
+
