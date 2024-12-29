@@ -64,7 +64,7 @@ export function Footer() {
                 </Button>
                 </a>
                 
-              
+                <a href="https://www.tokopedia.com/sasweet-1" target="_blank"> 
               <Button
                 color="white"
                 className="flex items-center justify-center"
@@ -78,6 +78,7 @@ export function Footer() {
                 />
                Shoope
               </Button>
+              </a>
               <a href="https://www.tokopedia.com/sasweet-1" target="_blank">
               <Button
                 color="white"

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Typography, Card, TypographyProps } from "@material-tailwind/react";
+import { Navbar } from "@/components";
 
 const FAQS = [
   {
@@ -32,7 +33,9 @@ const FAQS = [
 
 export default function FAQPage() {
   return (
-    <section className="px-8 py-20">
+   <>
+     <Navbar />
+     <section className="px-8 py-20">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center">
           <Typography variant="h1" color="blue-gray" className="mb-4" >
@@ -62,6 +65,8 @@ export default function FAQPage() {
         </div>
       </div>
     </section>
+   </>
+   
   );
 }
 

@@ -7,7 +7,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-
+import { useRouter } from "next/navigation";
 interface NavItemProps {
   children: React.ReactNode;
   href?: string;
@@ -31,7 +31,7 @@ function NavItem({ children, href }: NavItemProps) {
 export function Navbar() {
   const [open, setOpen] = React.useState(false);
   const [isScrolling, setIsScrolling] = React.useState(false);
-
+  const router = useRouter();
   function handleOpen() {
     setOpen((cur) => !cur);
   }
@@ -56,7 +56,9 @@ export function Navbar() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+  const handleNavigation = () => {
+    router.push("/faq"); // Pindah ke halaman "/about"
+  };
   return (
     <MTNavbar
       fullWidth
@@ -68,7 +70,7 @@ export function Navbar() {
       <div className="container mx-auto flex items-center justify-between">
         <Typography
           as="a"
-          href="https://www.material-tailwind.com"
+          href="/"
           target="_blank"
           variant="h6"
           color={isScrolling ? "gray" : "white"}
@@ -82,7 +84,7 @@ export function Navbar() {
         >
           <NavItem>Home</NavItem>
           <NavItem>About Us</NavItem>
-          <NavItem href="faq">Contact Us</NavItem>
+          <NavItem href="/faq">Faq</NavItem>
           <NavItem href="https://www.material-tailwind.com/docs/react/installation">
             Docs
           </NavItem>
@@ -133,7 +135,7 @@ export function Navbar() {
           <ul className="flex flex-col gap-4 text-blue-gray-900">
             <NavItem>Home</NavItem>
             <NavItem>About Us</NavItem>
-            <NavItem>Contact Us</NavItem>
+            <NavItem href="/faq">Faq</NavItem>
             <NavItem href="https://www.material-tailwind.com/docs/react/installation">
               Docs
             </NavItem>
