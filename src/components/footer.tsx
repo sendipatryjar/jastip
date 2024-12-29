@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Typography, IconButton, Button } from "@material-tailwind/react";
 
-const LINKS = ["About Us", "Careers", "Press", "Blog", "Pricing"];
+const LINKS = ["About Us", "Pricing"];
 const CURRENT_YEAR = new Date().getFullYear();
 
 export function Footer() {
@@ -19,10 +19,10 @@ export function Footer() {
               color="white"
               className="mb-4"
             >
-              Material Tailwind
+              Wishlist by Sazy
             </Typography>
             <Typography color="white" className="mb-12 font-normal">
-              The reward for getting on the stage is fame.
+              Jastip Produk China
             </Typography>
             <ul className="flex flex-wrap items-center justify-center md:justify-start">
               {LINKS.map((link, idx) => (
@@ -43,9 +43,28 @@ export function Footer() {
           </div>
           <div className="mt-8 w-full md:mt-0 md:w-auto">
             <Typography variant="h6" color="white" className="mb-3">
-              Get the app
+              Kontak kami :
             </Typography>
             <div className="flex flex-col gap-2">
+            <a href="https://wa.me/085158380881" target="_blank">
+              <Button
+              
+                color="white"
+                className="flex items-center justify-center"
+              >
+               
+                <Image
+                  width={256}
+                  height={256}
+                  src="/logos/wa.png"
+                  className="-mt-0.5 mr-2 h-6 w-6"
+                  alt="ios"
+                />
+                Whatsapp
+                </Button>
+                </a>
+                
+              
               <Button
                 color="white"
                 className="flex items-center justify-center"
@@ -53,25 +72,27 @@ export function Footer() {
                 <Image
                   width={256}
                   height={256}
-                  src="/logos/logo-apple.png"
+                  src="/logos/shoope.png"
                   className="-mt-0.5 mr-2 h-6 w-6"
                   alt="ios"
                 />
-                App Store
+               Shoope
               </Button>
+              <a href="https://www.tokopedia.com/sasweet-1" target="_blank">
               <Button
                 color="white"
-                className="flex items-center justify-center"
+                className="flex items-center justify-left"
               >
                 <Image
                   width={256}
                   height={256}
-                  src="/logos/logo-google.png"
+                  src="/logos/tokped.png"
                   className="-mt-0.5 mr-2 h-6 w-6"
                   alt="ios"
                 />
-                Google Play
+               Tokopedia
               </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -82,16 +103,11 @@ export function Footer() {
           >
             &copy; {CURRENT_YEAR} Made with{" "}
             <a href="https://www.material-tailwind.com" target="_blank">
-              Material Tailwind
-            </a>{" "}
-            by{" "}
-            <a href="https://www.creative-tim.com" target="_blank">
-              Creative Tim
+              Wishlist by Sazy
             </a>
-            .
           </Typography>
 
-          <div className="flex gap-2">
+          {/* <div className="flex gap-2">
             <IconButton variant="text" color="white">
               <i className="fa-brands fa-twitter text-2xl not-italic opacity-75"></i>
             </IconButton>
@@ -107,7 +123,7 @@ export function Footer() {
             <IconButton variant="text" color="white">
               <i className="fa-brands fa-dribbble text-2xl not-italic opacity-75"></i>
             </IconButton>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>
