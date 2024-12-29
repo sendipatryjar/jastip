@@ -18,7 +18,7 @@ function NavItem({ children, href }: NavItemProps) {
       <Typography
         as="a"
         href={href || "#"}
-        target={href ? "_blank" : "_self"}
+        target={"_self"}
         variant="small"
         className="font-medium"
       >
@@ -82,7 +82,7 @@ export function Navbar() {
         >
           <NavItem>Home</NavItem>
           <NavItem>About Us</NavItem>
-          <NavItem>Contact Us</NavItem>
+          <NavItem href="faq">Contact Us</NavItem>
           <NavItem href="https://www.material-tailwind.com/docs/react/installation">
             Docs
           </NavItem>
