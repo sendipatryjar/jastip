@@ -56,7 +56,7 @@ function Hero() {
           <Image
             width={700}
             height={200}
-            src="/image/iph.png"
+            src="/image/iphones.png"
             alt="team work"
             className="col-span-1 my-20 h-full w-30 max-h-[30rem] -translate-y-32 md:max-h-[50rem] lg:my-0 lg:ml-auto lg:max-h-[60rem] lg:translate-y-0"
           />
