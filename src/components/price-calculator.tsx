@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { CurrencyInput } from './currency-input';
 import { PriceSummary } from './price-summary';
+import { CurrencySelector } from './currency-selector';
 import { calculateTotal } from '@/utils/priceCalculation';
+import { CurrencyType } from '@/utils/currencyConstants';
 
 export function PriceCalculator() {
+  const [currency, setCurrency] = useState<CurrencyType>('CNY');
   const [values, setValues] = useState({
     price: '',
     shipping: '',
@@ -14,21 +17,26 @@ export function PriceCalculator() {
     setValues(prev => ({ ...prev, [name]: value }));
   };
 
-  const total = calculateTotal(values.price, values.shipping, values.adminFee);
+  const total = calculateTotal(values.price, values.shipping, values.adminFee, currency);
 
   return (
     <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-6">
+      <CurrencySelector
+        selectedCurrency={currency}
+        onCurrencyChange={setCurrency}
+      />
+      
       <div className="space-y-4">
         <CurrencyInput
-          label="Harga Barang"
+          label={`Harga Barang (${currency})`}
           value={values.price}
           onChange={(value) => handleChange('price', value)}
-          placeholder="Contoh: 1.000.000"
+          placeholder={`Masukkan harga dalam ${currency}`}
           icon="💰"
         />
         
         <CurrencyInput
-          label="Ongkos Kirim"
+          label="Ongkos Kirim (IDR)"
           value={values.shipping}
           onChange={(value) => handleChange('shipping', value)}
           placeholder="Contoh: 50.000"
@@ -36,7 +44,7 @@ export function PriceCalculator() {
         />
         
         <CurrencyInput
-          label="Biaya Admin"
+          label="Biaya Admin (IDR)"
           value={values.adminFee.toString()}
           onChange={(value) => handleChange('adminFee', value)}
           placeholder="Biaya admin"
@@ -44,7 +52,11 @@ export function PriceCalculator() {
           disabled
         />
 
-        <PriceSummary values={values} total={total} />
+        <PriceSummary 
+          values={values} 
+          total={total} 
+          currency={currency}
+        />
       </div>
     </div>
   );
