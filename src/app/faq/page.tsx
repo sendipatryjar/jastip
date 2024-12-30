@@ -35,15 +35,15 @@ export default function FAQPage() {
   return (
    <>
      <Navbar />
-     <section className="px-8 py-20">
+     <section className="px-8 py-20 bg-gray-900">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center">
-          <Typography variant="h1" color="blue-gray" className="mb-4" >
+          <Typography variant="h1" color="white" className="mb-4" >
             Yang sering ditanyakan oleh Customer?
           </Typography>
           <Typography
             variant="lead"
-            className="mx-auto mb-24 !text-gray-500 lg:w-3/5"
+            className="mx-auto mb-24 !text-white lg:w-3/5"
           >
            Berikut beberapa pertanyaan yang sering diajukan customer.
           </Typography>
@@ -52,7 +52,7 @@ export default function FAQPage() {
         <div className="grid gap-20 md:grid-cols-1 lg:grid-cols-3">
           {FAQS.map(({ title, desc }) => (
             <Card key={title} shadow={false} color="transparent">
-              <Typography color="blue-gray" className="pb-6" variant="h4">
+              <Typography color="white" className="pb-6" variant="h4">
                 {title}
               </Typography>
               <div className="pt-2">
