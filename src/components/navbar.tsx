@@ -95,7 +95,7 @@ export function Navbar() {
           }`}
         >
           <NavItem>Home</NavItem>
-          <NavItem>About Us</NavItem>
+          <NavItem href="/about">About Us</NavItem>
           <NavItem href="/faq">Faq</NavItem>
           <NavItem href="/price">
             Cek Harga
@@ -146,7 +146,7 @@ export function Navbar() {
         <div className="container mx-auto mt-4 rounded-lg border-t border-blue-gray-50 bg-white px-6 py-5">
           <ul className="flex flex-col gap-4 text-blue-gray-900">
             <NavItem>Home</NavItem>
-            <NavItem>About Us</NavItem>
+            <NavItem  href="/about">About Us</NavItem>
             <NavItem href="/faq">Faq</NavItem>
             <NavItem href="/price">Cek Harga </NavItem>
           </ul>
