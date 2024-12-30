@@ -48,7 +48,7 @@ export default function PRICEPage() {
             variant="lead"
             className="mx-auto mb-24 !text-white lg:w-3/5"
           >
-       
+       {''}
           </Typography>
         </div>
 
