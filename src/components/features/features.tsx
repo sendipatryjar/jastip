@@ -3,11 +3,10 @@
 import React from "react";
 import { Typography } from "@material-tailwind/react";
 import { Fade } from "react-awesome-reveal";
-import FeatureCard from "./../components/features/feature-card";
-import { FEATURES } from "./../components/features/feature-data";
+import FeatureCard from "./feature-card";
+import { FEATURES } from "./feature-data";
 
-export default function Features() {
-  
+export function Features() {
   return (
     <section className="py-28 px-4">
       <div className="container mx-auto mb-20 text-center">
@@ -39,3 +38,4 @@ export default function Features() {
   );
 }
 
+export default Features;
