@@ -97,7 +97,7 @@ export function Navbar() {
           <NavItem>Home</NavItem>
           <NavItem>About Us</NavItem>
           <NavItem href="/faq">Faq</NavItem>
-          <NavItem href="/">
+          <NavItem href="/price">
             Cek Harga
           </NavItem>
         </ul>
@@ -148,9 +148,7 @@ export function Navbar() {
             <NavItem>Home</NavItem>
             <NavItem>About Us</NavItem>
             <NavItem href="/faq">Faq</NavItem>
-            <NavItem href="https://www.material-tailwind.com/docs/react/installation">
-              Docs
-            </NavItem>
+            <NavItem href="/price">Cek Harga </NavItem>
           </ul>
           <div className="mt-4 flex items-center gap-2">
             <IconButton variant="text" color="gray" size="sm">

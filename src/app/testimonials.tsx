@@ -104,7 +104,7 @@ export function Testimonials() {
             <UserIcon className="h-6 w-6" />
           </div>
           <Typography variant="h2" color="blue-gray" className="mb-2">
-            Ecommerce Available
+           Tata Cara Order
           </Typography>
           <Typography
             variant="lead"

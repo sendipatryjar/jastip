@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Typography, Card, TypographyProps } from "@material-tailwind/react";
 import { Navbar } from "@/components";
 
@@ -31,37 +31,34 @@ const FAQS = [
   },
 ];
 
-export default function FAQPage() {
+export default function PRICEPage() {
+  const [price, setPrice] = useState('')
+  const [ongkir, setOngkir] = useState(0)
+  const [admin, setAdmin] = useState(55000)
   return (
    <>
      <Navbar />
-     <section className="px-8 py-20  bg-[#b9aeef]">
+     <section className="px-8 py-20 bg-[#b9aeef]">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center">
           <Typography variant="h1" color="white" className="mb-4" >
-            Yang sering ditanyakan oleh Customer?
+            Cara Menghitung Harga Barang
           </Typography>
           <Typography
             variant="lead"
             className="mx-auto mb-24 !text-white lg:w-3/5"
           >
-           Berikut beberapa pertanyaan yang sering diajukan customer.
+       
           </Typography>
         </div>
 
-        <div className="grid gap-20 md:grid-cols-1 lg:grid-cols-3">
-          {FAQS.map(({ title, desc }) => (
-            <Card key={title} shadow={false} color="transparent">
-              <Typography color="white" className="pb-6" variant="h4">
-                {title}
-              </Typography>
-              <div className="pt-2">
-                <Typography className="font-normal !text-black">
-                  {desc}
-                </Typography>
-              </div>
-            </Card>
-          ))}
+        <div className="flex flex-row items-center align-center">
+          <input value={price} className="p-2 rounded-xl mr-4" placeholder="Masukkan Harga Barang" />
+          <input value={price} className="p-2 rounded-xl  mr-4" placeholder="Masukkan Ongkir Barang" />
+          <input value={admin}  className="p-2 rounded-xl" placeholder="Masukkan Harga Admin" />
+        </div>
+        <div className="bg-gray-900 items-center mt-4 p-2 rounded-full">
+          <p className="text-white text-center">Hitung</p>
         </div>
       </div>
     </section>
