@@ -1,19 +1,26 @@
 import React from 'react';
 import { CurrencyType } from '@/utils/currencyConstants';
+import { ShippingMethod, OrderMethod, ADMIN_FEES, SHIPPING_RATES } from '@/utils/shippingConstants';
 import { convertToIDR, calculateShipping } from '@/utils/priceCalculation';
-import { SHIPPING_RATES } from '@/utils/shippingConstants';
 
 interface PriceSummaryProps {
   values: {
     price: string;
     weight: string;
-    adminFee: number;
   };
   total: number;
   currency: CurrencyType;
+  shippingMethod: ShippingMethod;
+  orderMethod: OrderMethod;
 }
 
-export function PriceSummary({ values, total, currency }: PriceSummaryProps) {
+export function PriceSummary({ 
+  values, 
+  total, 
+  currency,
+  shippingMethod,
+  orderMethod 
+}: PriceSummaryProps) {
   const formatter = new Intl.NumberFormat('id-ID', {
     style: 'currency',
     currency: 'IDR',
@@ -22,9 +29,10 @@ export function PriceSummary({ values, total, currency }: PriceSummaryProps) {
 
   const priceInIDR = convertToIDR(values.price, currency);
   const weight = parseFloat(values.weight) || 0;
-  const shippingCost = calculateShipping(weight);
-  const chinaBatamCost = weight * SHIPPING_RATES.CHINA_BATAM;
-  const batamCustomerCost = SHIPPING_RATES.BATAM_CUSTOMER;
+  const shippingCost = calculateShipping(weight, shippingMethod);
+  const adminFee = ADMIN_FEES[orderMethod];
+  const chinaBatamCost = weight * SHIPPING_RATES[shippingMethod].CHINA_BATAM;
+  const batamCustomerCost = SHIPPING_RATES[shippingMethod].BATAM_CUSTOMER;
 
   return (
     <div className="mt-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-6 text-white">
@@ -47,7 +55,7 @@ export function PriceSummary({ values, total, currency }: PriceSummaryProps) {
 
         <div className="space-y-1 border-t border-white/20 pt-2">
           <div className="flex justify-between text-sm">
-            <span>Ongkir China - Batam:</span>
+            <span>Ongkir China - Batam ({shippingMethod}):</span>
             <span>{formatter.format(chinaBatamCost)}</span>
           </div>
           <div className="flex justify-between text-sm">
@@ -61,8 +69,8 @@ export function PriceSummary({ values, total, currency }: PriceSummaryProps) {
         </div>
 
         <div className="flex justify-between">
-          <span>Biaya Admin:</span>
-          <span>{formatter.format(values.adminFee)}</span>
+          <span>Biaya Admin ({orderMethod}):</span>
+          <span>{formatter.format(adminFee)}</span>
         </div>
 
         <div className="border-t border-white/30 pt-2 mt-2">
