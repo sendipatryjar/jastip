@@ -26,7 +26,7 @@ export default function RecapForm({ onSubmit }: RecapFormProps) {
     tracking_number: '',
     order_status: 'pending',
     price: 0,
-    
+    name: ''
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -63,6 +63,7 @@ export default function RecapForm({ onSubmit }: RecapFormProps) {
       tracking_number: '',
       order_status: 'pending',
       price: 0,
+      name: ''
     });
   };
 
@@ -114,6 +115,13 @@ export default function RecapForm({ onSubmit }: RecapFormProps) {
           value={formData.address}
           onChange={handleInputChange}
         />
+       <FormInput
+            label="Nama Customer"
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+          />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormInput

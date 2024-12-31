@@ -14,6 +14,7 @@ export default function RecapForm({ onSubmit }: RecapFormProps) {
     tracking_number: '',
     order_status: 'pending',
     price: 0,
+    name: ''
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -50,6 +51,7 @@ export default function RecapForm({ onSubmit }: RecapFormProps) {
       tracking_number: '',
       order_status: 'pending',
       price: 0,
+      name: ''
     });
   };
 
@@ -106,6 +108,16 @@ export default function RecapForm({ onSubmit }: RecapFormProps) {
             type="text"
             name="tracking_number"
             value={formData.tracking_number}
+            onChange={handleInputChange}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Nama Customer</label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
             onChange={handleInputChange}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
           />

@@ -8,4 +8,5 @@ export interface RecapData {
     order_status: 'pending' | 'processing' | 'shipped' | 'delivered';
     price: number;
     created_at?: string;
+    name: string;
   }
