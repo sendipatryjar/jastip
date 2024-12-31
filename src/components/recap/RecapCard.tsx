@@ -28,7 +28,7 @@ export function RecapCard({ recap }: RecapCardProps) {
               <p className="text-sm text-gray-500 mb-1">Nomor Resi</p>
               <p className="font-medium">{recap.tracking_number || '-'}</p>
             </div>
-            <StatusBadge status={recap.order_status as keyof typeof STATUS_STYLES} />
+            <StatusBadge status={recap.order_status} />
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

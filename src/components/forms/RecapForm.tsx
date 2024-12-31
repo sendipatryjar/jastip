@@ -44,7 +44,7 @@ export default function RecapForm({ onSubmit }: RecapFormProps) {
         if (event.target?.result) {
           setFormData(prev => ({
             ...prev,
-            photo: event.target.result as string
+            photo: event.target?.result as string
           }));
         }
       };

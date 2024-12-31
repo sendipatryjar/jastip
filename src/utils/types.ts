@@ -1,6 +1,6 @@
 export interface RecapData {
     id: string;
-    photo: string;
+    photo: any;
     process_date: string;
     ship_date: string;
     address: string;
