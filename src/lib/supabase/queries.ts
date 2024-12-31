@@ -21,6 +21,14 @@ export async function createRecap(data: Omit<RecapData, 'id' | 'created_at'>) {
   }
 }
 
+
+export async function updateRecap(data: any, id: any) {
+    const { error } = await supabase
+    .from('recaps')
+    .update({ order_status: data })
+    .eq('id', id)
+  }
+
 export async function getRecaps() {
     try {
       const { data: recaps, error } = await supabase
