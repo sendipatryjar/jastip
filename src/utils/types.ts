@@ -10,3 +10,7 @@ export interface RecapData {
     created_at?: string;
     name: string;
   }
+export interface TrackingData {
+    // Add specific type definitions based on the API response
+    [key: string]: any;
+}
