@@ -1,7 +1,7 @@
 "use client"
 import { useState } from 'react';
 import TrackingResult from './TrackingResult';
-import { TrackingData } from  '@/utils/types';
+import { TrackingData } from '@/utils/types';
 
 export default function TrackingForm() {
   const [trackingNumber, setTrackingNumber] = useState('');
@@ -16,40 +16,24 @@ export default function TrackingForm() {
     setTrackingData(null);
 
     try {
-      const response = await fetch('https://www.hbfcargo.com/action.do', {
+      // Use absolute URL
+      const response = await fetch('/api/track', {
         method: 'POST',
         headers: {
-            'Accept': '*/*',
-            'Accept-Language': 'en-GB,en;q=0.5',
-            'Content-Type': 'application/json;charset=utf-8',
-            'Origin': 'https://www.hbfcargo.com',
-            'Referer': 'https://www.hbfcargo.com/',
-            'X-Requested-With': 'XMLHttpRequest',
-            'Access-Control-Max-Age': '86400'
+          'Content-Type': 'application/json',
         },
-        body:JSON.stringify({
-            actionData: {
-              action: "deliveryTrackAction",
-              method: "getTrackList"
-            },
-            requestData: {
-              no: trackingNumber,
-              delivery_type: "0"
-            },
-            className: "deliveryTrackAction",
-            methodName: "getTrackList",
-            rand: new Date().toISOString()
-          })
+        body: JSON.stringify({ trackingNumber }),
       });
 
-      const data = await response.json();
-      
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to fetch tracking data');
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to fetch tracking data');
       }
 
+      const data = await response.json();
       setTrackingData(data);
     } catch (err) {
+      console.error('Form submission error:', err); // Add logging
       setError(err instanceof Error ? err.message : 'Something went wrong');
     } finally {
       setLoading(false);
@@ -68,7 +52,7 @@ export default function TrackingForm() {
             id="tracking-number"
             value={trackingNumber}
             onChange={(e) => setTrackingNumber(e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="mt-1 block w-full p-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             placeholder="Masukkan nomor resi"
             required
           />

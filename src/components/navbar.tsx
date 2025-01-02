@@ -97,6 +97,7 @@ export function Navbar() {
           <NavItem href="/">Home</NavItem>
           <NavItem href="/about">About Us</NavItem>
           <NavItem href="/faq">Faq</NavItem>
+          <NavItem href="/track">Cek Resi</NavItem>
           <NavItem href="/price">
             Cek Harga
           </NavItem>
@@ -148,7 +149,9 @@ export function Navbar() {
             <NavItem  href="/">Home</NavItem>
             <NavItem  href="/about">About Us</NavItem>
             <NavItem href="/faq">Faq</NavItem>
+            <NavItem href="/track">Cek Resi</NavItem>
             <NavItem href="/price">Cek Harga </NavItem>
+            
           </ul>
           <div className="mt-4 flex items-center gap-2">
             {/* <IconButton variant="text" color="gray" size="sm">
