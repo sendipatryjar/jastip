@@ -1,7 +1,15 @@
 import React from 'react';
+import { Fade } from 'react-awesome-reveal';
 
 export function Contact() {
   return (
+    <Fade
+    direction={"up"}
+    delay={300}
+    cascade
+    damping={1e-1}
+    triggerOnce={true}
+  >
     <div className="bg-gradient-to-r from-purple-600 to-indigo-700 py-20">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold text-white mb-8">Hubungi Kami</h2>
@@ -21,5 +29,6 @@ export function Contact() {
         </div>
       </div>
     </div>
+    </Fade>
   );
 }

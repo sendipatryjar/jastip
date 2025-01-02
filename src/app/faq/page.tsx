@@ -3,6 +3,7 @@
 import React from "react";
 import { Typography, Card, TypographyProps } from "@material-tailwind/react";
 import { Navbar } from "@/components";
+import { Fade } from "react-awesome-reveal";
 
 const FAQS = [
   {
@@ -51,7 +52,14 @@ export default function FAQPage() {
 
         <div className="grid gap-20 md:grid-cols-1 lg:grid-cols-3">
           {FAQS.map(({ title, desc }) => (
-            <Card key={title} shadow={false} color="transparent">
+             <Fade
+             direction={"bottom-right"}
+             delay={400}
+             cascade
+             damping={1e-1}
+             triggerOnce={true}
+           >
+             <Card key={title} shadow={false} color="transparent">
               <Typography color="white" className="pb-6" variant="h4">
                 {title}
               </Typography>
@@ -61,6 +69,8 @@ export default function FAQPage() {
                 </Typography>
               </div>
             </Card>
+            </Fade>
+           
           ))}
         </div>
       </div>

@@ -1,26 +1,27 @@
-import React from 'react';
+import React from "react";
+import { Fade } from "react-awesome-reveal";
 
 const steps = [
   {
     number: "01",
     title: "Pilih Produk",
-    description: "Pilih produk yang Anda inginkan dari marketplace China"
+    description: "Pilih produk yang Anda inginkan dari marketplace China",
   },
   {
     number: "02",
     title: "Kirim Link",
-    description: "Kirimkan link produk melalui WhatsApp atau marketplace kami"
+    description: "Kirimkan link produk melalui WhatsApp atau marketplace kami",
   },
   {
     number: "03",
     title: "Konfirmasi Harga",
-    description: "Kami akan menghitung total biaya termasuk ongkir dan admin"
+    description: "Kami akan menghitung total biaya termasuk ongkir dan admin",
   },
   {
     number: "04",
     title: "Pembayaran",
-    description: "Lakukan pembayaran sesuai dengan metode yang tersedia"
-  }
+    description: "Lakukan pembayaran sesuai dengan metode yang tersedia",
+  },
 ];
 
 export function Process() {
@@ -31,12 +32,22 @@ export function Process() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
             <div key={index} className="relative">
-              <div className="text-5xl font-bold text-purple-100 mb-4">{step.number}</div>
-              <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-              <p className="text-gray-600">{step.description}</p>
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-purple-100 -z-10"></div>
-              )}
+              <Fade
+                direction={"left"}
+                delay={300}
+                cascade
+                damping={1e-1}
+                triggerOnce={true}
+              >
+                <div className="text-5xl font-bold text-purple-100 mb-4">
+                  {step.number}
+                </div>
+                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                <p className="text-gray-600">{step.description}</p>
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-purple-100 -z-10"></div>
+                )}
+              </Fade>
             </div>
           ))}
         </div>
