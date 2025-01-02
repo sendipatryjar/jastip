@@ -51,8 +51,9 @@ export default function FAQPage() {
         </div>
 
         <div className="grid gap-20 md:grid-cols-1 lg:grid-cols-3">
-          {FAQS.map(({ title, desc }) => (
+          {FAQS.map(({ title, desc,  }) => (
              <Fade
+             key={title}
              direction={"bottom-right"}
              delay={400}
              cascade
