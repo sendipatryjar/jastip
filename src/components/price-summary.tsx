@@ -7,7 +7,7 @@ interface PriceSummaryProps {
   values: {
     price: string;
     weight: string;
-    ongkir: string;
+    ongkir: any;
   };
   total: number;
   currency: CurrencyType;
