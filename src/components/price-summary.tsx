@@ -7,6 +7,7 @@ interface PriceSummaryProps {
   values: {
     price: string;
     weight: string;
+    ongkir: string;
   };
   total: number;
   currency: CurrencyType;
@@ -27,12 +28,12 @@ export function PriceSummary({
     minimumFractionDigits: 0
   });
 
-  const priceInIDR = convertToIDR(values.price, currency);
+  const priceInIDR = convertToIDR(values.price, currency, orderMethod);
   const weight = parseFloat(values.weight) || 0;
   const shippingCost = calculateShipping(weight, shippingMethod);
   const adminFee = ADMIN_FEES[orderMethod];
   const chinaBatamCost = weight * SHIPPING_RATES[shippingMethod].CHINA_BATAM;
-  const batamCustomerCost = SHIPPING_RATES[shippingMethod].BATAM_CUSTOMER;
+  const batamCustomerCost = values.ongkir
 
   return (
     <div className="mt-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-6 text-white">

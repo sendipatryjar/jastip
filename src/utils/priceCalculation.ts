@@ -3,9 +3,13 @@ import { SHIPPING_RATES, ADMIN_FEES, ShippingMethod, OrderMethod } from './shipp
 
 export const convertToIDR = (
   amount: string,
-  currency: CurrencyType
+  currency: CurrencyType,
+  orderMethod: OrderMethod,
 ): number => {
   const numAmount = parseFloat(amount || '0');
+  if(orderMethod === 'ECOMMERCE'){
+    return Math.round((numAmount * EXCHANGE_RATES[currency]) * 1.15);
+  }
   return Math.round(numAmount * EXCHANGE_RATES[currency]);
 };
 
@@ -29,7 +33,7 @@ export const calculateTotal = (
   shippingMethod: ShippingMethod,
   orderMethod: OrderMethod
 ): number => {
-  const priceInIDR = convertToIDR(price, currency);
+  const priceInIDR = convertToIDR(price, currency, orderMethod);
   const shippingCost = calculateShipping(weight, shippingMethod);
   const adminFee = getAdminFee(orderMethod);
   return priceInIDR + shippingCost + adminFee;

@@ -14,6 +14,8 @@ export function PriceCalculator() {
   const [values, setValues] = useState({
     price: '',
     weight: '',
+    ongkir: '',
+
   });
 
   const handleChange = (name: string, value: string) => {
@@ -30,6 +32,16 @@ export function PriceCalculator() {
 
   return (
     <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-6">
+      <div className="flex space-x-4 mb-4">
+      <CurrencyInput
+          label={`Ongkir Batam - Tujuan`}
+          value={values.ongkir}
+          onChange={(value) => handleChange('ongkir', value)}
+          placeholder={`Masukkan Ongkir`}
+          icon="💰"
+        />
+      </div>
+      
       <CurrencySelector
         selectedCurrency={currency}
         onCurrencyChange={setCurrency}

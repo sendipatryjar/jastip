@@ -1,11 +1,11 @@
 export const SHIPPING_RATES = {
     AIR: {
-      CHINA_BATAM: 120000, // per kg
-      BATAM_CUSTOMER: 62000, // base rate
+      CHINA_BATAM: 135000, // per kg
+      BATAM_CUSTOMER: 78000, // base rate
     },
     SEA: {
-      CHINA_BATAM: 55000, // per kg
-      BATAM_CUSTOMER: 62000, // base rate
+      CHINA_BATAM: 45000, // per kg
+      BATAM_CUSTOMER: 78000, // base rate
     }
   } as const;
   
